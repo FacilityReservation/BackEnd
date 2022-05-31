@@ -1,5 +1,6 @@
 package org.techtown.joinusproject;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,7 @@ public class FacilityActivity extends AppCompatActivity {
         Button GetFacility = (Button) findViewById(R.id.getFacility);
         Button PostFacility = (Button) findViewById(R.id.postFacility);
         Button DeleteFacility = (Button) findViewById(R.id.deleteFacility);
+        Button SeeUsers = (Button) findViewById(R.id.seeUsers);
 
         mQueue = Volley.newRequestQueue(this);
 
@@ -66,6 +68,17 @@ public class FacilityActivity extends AppCompatActivity {
                 EditText fac_CEO = findViewById(R.id.fac_ceo);
 
                 deleteFacility(fac_TITLE.getText().toString(), fac_CEO.getText().toString());
+            }
+        });
+
+        SeeUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent new_intent;
+
+                new_intent = new Intent(FacilityActivity.this, MainActivity.class);
+                startActivity(new_intent);
+                finish();
             }
         });
     }
@@ -121,7 +134,7 @@ public class FacilityActivity extends AppCompatActivity {
     {
         TextView AllFacility = (TextView) findViewById(R.id.allFacility);
 
-        String url = "http://3.34.53.201/facility";
+        String fac_url;
         String response = "error!";
 
         EditText fac_P = findViewById(R.id.fac_p);
@@ -135,10 +148,10 @@ public class FacilityActivity extends AppCompatActivity {
         String user_value= sf.getString("mem_id", "");
         String mem_user_p = sf.getString("mem_p", "");
 
-        url = "http://3.34.53.201/facility";
+        fac_url = "http://3.34.53.201/facility";
         Map<String, String> params = new HashMap<String, String>();
         params.put("fac_p", fac_P.getText().toString());
-        params.put("fac_ceo", user_value.toString());
+        params.put("fac_ceo", user_value);
         params.put("fac_title", fac_TITLE.getText().toString());
         params.put("fac_info", fac_INFO.getText().toString());
         params.put("fac_max", fac_MAX.getText().toString());
@@ -146,7 +159,7 @@ public class FacilityActivity extends AppCompatActivity {
 
         JSONObject jsonObj = new JSONObject(params);
 
-        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObj,
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, fac_url, jsonObj,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
@@ -160,7 +173,7 @@ public class FacilityActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error)
                     {
-                        Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), user_value, Toast.LENGTH_SHORT).show();
                     }
                 }
         )

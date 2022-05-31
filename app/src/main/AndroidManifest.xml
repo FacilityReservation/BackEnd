@@ -23,7 +23,9 @@
         </activity>
         <!-- 인텐트 -->
         <activity android:name=".MainActivity"/>
+        <activity android:name=".CategoryActivity"/>
         <activity android:name=".FacilityActivity"/>
+        <activity android:name=".ResActivity"/>
     </application>
 
 </manifest>

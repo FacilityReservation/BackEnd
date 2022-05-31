@@ -50,11 +50,19 @@ public class LoginActivity extends AppCompatActivity {
 
         mQueue = Volley.newRequestQueue(this);
         Button confirm_btn = findViewById(R.id.confirm);
+        Button join_btn = findViewById(R.id.join);
 
         confirm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getUserInfo();
+            }
+        });
+
+        join_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                join();
             }
         });
     }
@@ -82,8 +90,18 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if (tmp_id.equals(new_id.getText().toString()) &&
                                 tmp_pw.equals(new_pw.getText().toString())) {
-                                    Intent fac_intent=new Intent(LoginActivity.this, FacilityActivity.class);
-                                    Toast.makeText(getApplicationContext(), "로그인 성공!", Toast.LENGTH_SHORT).show();
+                                    String tmp_type = user.getString("mem_type");
+                                    Intent fac_intent;
+
+                                    if (tmp_type.equals("1"))
+                                    {
+                                        fac_intent = new Intent(LoginActivity.this, FacilityActivity.class);
+                                        Toast.makeText(getApplicationContext(), "슈퍼 계정", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else {
+                                        fac_intent = new Intent(LoginActivity.this, CategoryActivity.class);
+                                        Toast.makeText(getApplicationContext(), "로그인 성공!", Toast.LENGTH_SHORT).show();
+                                    }
 
                                     // 0525 추가 ///////////////////////////////////////////////////////////
                                     SharedPreferences sf = getSharedPreferences("sFile",MODE_PRIVATE);
@@ -114,5 +132,14 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         mQueue.add(request);
+    }
+
+    private void join()
+    {
+        Intent new_intent;
+
+        //new_intent = new Intent(LoginActivity.this, MainActivity.class);
+        //startActivity(fac_intent);
+        //finish();
     }
 }

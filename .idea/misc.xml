@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/JoinUsProject/app/src/main/res/layout/activity_categories.xml" value="0.21739130434782608" />
+        <entry key="..\:/JoinUsProject/app/src/main/res/layout/activity_dibslist.xml" value="0.21739130434782608" />
         <entry key="..\:/JoinUsProject/app/src/main/res/layout/activity_facility.xml" value="0.16799999999999998" />
+        <entry key="..\:/JoinUsProject/app/src/main/res/layout/activity_join.xml" value="0.21739130434782608" />
+        <entry key="..\:/JoinUsProject/app/src/main/res/layout/activity_list.xml" value="0.21739130434782608" />
         <entry key="..\:/JoinUsProject/app/src/main/res/layout/activity_login.xml" value="0.2296195652173913" />
         <entry key="..\:/JoinUsProject/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/JoinUsProject/app/src/main/res/layout/sdfs.xml" value="0.21739130434782608" />
         <entry key="..\:/JoinUsProject/app/src/main/res/layout/test1.xml" value="0.24947916666666667" />
+        <entry key="..\:/JoinUsProject/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

@@ -2,9 +2,9 @@ package org.techtown.joinusproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,25 +19,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.JsonObject;
 
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.io.Console;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonParse = findViewById(R.id.button);
         Button buttonPost = findViewById(R.id.PostButton);
         Button buttoDelete = findViewById(R.id.DeleteButton);
+        Button buttonFacility = findViewById(R.id.FacilityButton);
         textViewResult = findViewById(R.id.getText);
 
         mQueue = Volley.newRequestQueue(this);
@@ -74,8 +65,19 @@ public class MainActivity extends AppCompatActivity {
         buttoDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText MEM_ID = findViewById(R.id.id);
+                EditText MEM_ID = findViewById(R.id.m_id);
                 deleteUser(MEM_ID.getText().toString());
+            }
+        });
+
+        buttonFacility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent new_intent;
+
+                new_intent = new Intent(MainActivity.this, FacilityActivity.class);
+                startActivity(new_intent);
+                finish();
             }
         });
     }
@@ -129,12 +131,12 @@ public class MainActivity extends AppCompatActivity {
         String url = "http://3.34.53.201/users";
         String response = "error!";
 
-        EditText p = findViewById(R.id.p);
-        EditText id = findViewById(R.id.id);
-        EditText pw = findViewById(R.id.pw);
-        EditText name = findViewById(R.id.name);
-        EditText company = findViewById(R.id.company);
-        EditText type = findViewById(R.id.type);
+        EditText p = findViewById(R.id.m_p);
+        EditText id = findViewById(R.id.m_id);
+        EditText pw = findViewById(R.id.m_pw);
+        EditText name = findViewById(R.id.m_name);
+        EditText company = findViewById(R.id.m_company);
+        EditText type = findViewById(R.id.m_type);
         TextView text = findViewById(R.id.getText);
 
         url = "http://3.34.53.201/users";
