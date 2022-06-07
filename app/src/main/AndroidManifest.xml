@@ -11,7 +11,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.JoinUsProject">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -23,9 +26,13 @@
         </activity>
         <!-- 인텐트 -->
         <activity android:name=".MainActivity"/>
+        <activity android:name=".JoinActivity"/>
         <activity android:name=".CategoryActivity"/>
         <activity android:name=".FacilityActivity"/>
         <activity android:name=".ResActivity"/>
+        <activity android:name=".ResActivity2"/>
+        <activity android:name=".ResEndActivity"/>
+        <activity android:name=".IdentifyActivity"/>
     </application>
 
 </manifest>

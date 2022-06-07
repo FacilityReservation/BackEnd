@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="#F6BB43"
+        android:gravity="center"
+        android:text=" 예약이 완료되었습니다."
+        android:textColor="#ffffff"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="193dp"
+        android:layout_height="164dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/icon" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:gravity="center"
+        android:text="저희 Join us를 이용해주셔서 감사합니다."
+        android:textColor="#F6BB43"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:gravity="center"
+        android:text="감사합니다^^"
+        android:textColor="#F6BB43"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</LinearLayout>

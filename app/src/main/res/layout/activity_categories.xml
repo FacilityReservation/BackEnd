@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:gravity="center">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/icon" />
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-            <View
-                android:layout_weight="100"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
+        <Button
+            android:id="@+id/logout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#A9F5F2"
+            android:text="로그아웃"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="30dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ok"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="414dp"
+        android:layout_width="match_parent"
         android:layout_height="221dp"
-        android:background="#80000000"
+        android:background="#E0F8F7"
+        app:layout_constraintBottom_toTopOf="@id/const2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView3"
@@ -68,9 +70,9 @@
             android:id="@+id/btn_billiard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
             android:background="@drawable/border"
             android:src="@drawable/billiard"
+            app:layout_constraintEnd_toStartOf="@+id/btn_roomexit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btn_roomexit"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -82,8 +84,8 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/border"
             android:src="@drawable/roomexit"
-            app:layout_constraintEnd_toStartOf="@+id/btn_bowling"
-            app:layout_constraintStart_toEndOf="@+id/btn_billiard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -91,10 +93,10 @@
             android:id="@+id/btn_bowling"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="36dp"
             android:background="@color/white"
             android:src="@drawable/bowling"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_roomexit"
             app:layout_constraintTop_toTopOf="@+id/btn_roomexit"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -102,9 +104,9 @@
             android:id="@+id/btn_vr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
             android:background="@color/white"
             android:src="@drawable/vr"
+            app:layout_constraintEnd_toStartOf="@+id/btn_partyroom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btn_cafe"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -116,8 +118,8 @@
             android:layout_marginTop="24dp"
             android:background="@color/white"
             android:src="@drawable/partyroom"
-            app:layout_constraintEnd_toStartOf="@+id/btn_cafe"
-            app:layout_constraintStart_toEndOf="@+id/btn_vr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_roomexit"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -125,10 +127,10 @@
             android:id="@+id/btn_cafe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="36dp"
             android:background="@color/white"
             android:src="@drawable/cafe"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_partyroom"
             app:layout_constraintTop_toTopOf="@+id/btn_partyroom"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -136,36 +138,48 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#80000000"
-        app:layout_constraintBottom_toTopOf="@+id/BottomNavigationView"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="-40dp">
+        android:layout_height="match_parent"
+        android:background="#E0F8F7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <LinearLayout
+            android:id="@+id/infoLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:id="@+id/infoLayout">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
         </LinearLayout>
 
         <!-- TOP MENU -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/BottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/BottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_navigation_menu" />`
+    -->
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

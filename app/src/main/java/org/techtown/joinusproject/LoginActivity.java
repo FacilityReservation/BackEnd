@@ -138,8 +138,7 @@ public class LoginActivity extends AppCompatActivity {
     {
         Intent new_intent;
 
-        //new_intent = new Intent(LoginActivity.this, MainActivity.class);
-        //startActivity(fac_intent);
-        //finish();
+        new_intent = new Intent(LoginActivity.this, JoinActivity.class);
+        startActivity(new_intent);
     }
 }

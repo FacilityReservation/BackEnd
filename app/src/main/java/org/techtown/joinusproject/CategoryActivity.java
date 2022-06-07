@@ -15,6 +15,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -144,6 +147,7 @@ public class CategoryActivity extends AppCompatActivity {
                                             + "    시설 이름 : " + facility.getString("fac_title"));
                                     new_btn.setTextSize(15);
                                     String facility_name = facility.getString("fac_title");
+                                    String facility_p = facility.getString("fac_p");
 
                                     new_btn.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -153,6 +157,7 @@ public class CategoryActivity extends AppCompatActivity {
                                             res_intent = new Intent(CategoryActivity.this, ResActivity.class);
                                             // getExtra로 값 꺼내올 수 있음
                                             res_intent.putExtra("fac_title", facility_name);
+                                            res_intent.putExtra("fac_p", facility_p);
                                             startActivity(res_intent);
                                         }
                                     });
